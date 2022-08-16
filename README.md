@@ -21,12 +21,14 @@ $ git submodule update --init --recursive
 
 ## Build
 
+*Note: Only option 1 has been tested. The build takes roughly 25 minutes. For building multithreaded FFMPEG, drop FFMPEG_ST=yes*
+
 1. Use docker (easy way)
 
 Install latest docker and run `build-with-docker.sh`.
 
 ```
-$ bash build-with-docker.sh
+$ FFMPEG_ST=yes bash build-with-docker.sh
 ```
 
 2. Install emsdk (unstable way)
