@@ -9,20 +9,20 @@ if [[ "$FFMPEG_ST" != "yes" ]]; then
     -pthread
     -s USE_PTHREADS=1                             # enable pthreads support
     -s PROXY_TO_PTHREAD=1                         # detach main() from browser/UI main thread
-    -o wasm/packages/core/dist/ffmpeg-core.js
+    -o wasm/packages/core/dist/ffmpeg-waveform.js
   )
 else
   mkdir -p wasm/packages/core-st/dist
   EXTRA_FLAGS=(
-    -o wasm/packages/core-st/dist/ffmpeg-core.js
+    -o wasm/packages/core-st/dist/ffmpeg-st-waveform.js
   )
 fi
 
 FLAGS=(
   -I. -I./fftools -I$BUILD_DIR/include
-  -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Lharfbuzz -Llibpostproc -Llibswscale -Llibswresample -L$BUILD_DIR/lib
+  -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Lharfbuzz -Llibswscale -Llibswresample -L$BUILD_DIR/lib
   -Wno-deprecated-declarations -Wno-pointer-sign -Wno-implicit-int-float-conversion -Wno-switch -Wno-parentheses -Qunused-arguments
-  -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lpostproc -lm -lharfbuzz -lwavpack -lmp3lame -lfdk-aac -lvorbis -lvorbisenc -lvorbisfile -logg -lz -lopus
+  -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm -lharfbuzz -lwavpack -lmp3lame -lfdk-aac -lvorbis -lvorbisenc -lvorbisfile -logg -lz -lopus
   fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c
   -s USE_SDL=2                                  # use SDL2
   -s INVOKE_RUN=0                               # not to run the main() in the beginning
