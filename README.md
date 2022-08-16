@@ -15,7 +15,7 @@ If you have any issues for this repository, please put it here: https://github.c
 ## Setup
 
 ```
-$ git clone https://github.com/ffmpegwasm/ffmpeg.wasm-core
+$ git clone https://github.com/kapwing/ffmpeg.wasm-core
 $ git submodule update --init --recursive
 ```
 
