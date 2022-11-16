@@ -19,6 +19,8 @@ $ git clone https://github.com/kapwing/ffmpeg.wasm-core
 $ git submodule update --init --recursive
 ```
 
+Note: Key changes to this repo are made to `build.sh`, `wasm/build-scripts/configure-ffmpeg.sh`, and `wasm/build-scripts/build-ffmpeg.sh`
+
 ## Build
 
 *Note: Only option 1 has been tested. The build takes roughly 25 minutes. For building multithreaded FFMPEG, drop FFMPEG_ST=yes*
